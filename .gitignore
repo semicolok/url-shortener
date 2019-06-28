@@ -1,0 +1,29 @@
+.gradle
+**/build/
+**/bin/
+**/out/
+**/src/querydsl/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Don't ignore Gradle wrapper jar file
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+#ignore ide specific settings and dirs
+/.settings/
+.project
+.classpath
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Cache of project
+.gradletasknamecache
+
+
+# gradle/wrapper/gradle-wrapper.properties
