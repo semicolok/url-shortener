@@ -27,6 +27,6 @@ public class UrlShortenerController {
         final String shortUrlKey = shortUrlKeyService.generateKey();
         final String shortUrl = urlShortenerService.generateShortUrl(shortUrlKey, generateShortUrlRequestDto.getUrl());
 
-        return new ResponseEntity<>(shortUrlKey, HttpStatus.OK);
+        return new ResponseEntity<>(shortUrl, HttpStatus.OK);
     }
 }
