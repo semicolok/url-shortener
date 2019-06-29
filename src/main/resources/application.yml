@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: url-shortener
+  groovy:
+    template:
+      check-template-location: false
