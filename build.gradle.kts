@@ -6,6 +6,8 @@ plugins {
     java;
     id("org.springframework.boot") version "2.1.6.RELEASE"
     id("io.spring.dependency-management") version "1.0.8.RELEASE"
+    id("net.ltgt.apt") version "0.21"
+    id("net.ltgt.apt-idea") version "0.21"
 }
 
 group = "com.jake.url.shortener"
@@ -26,6 +28,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+    compile("org.apache.commons:commons-lang3")
 
     compile("org.mapstruct:mapstruct:1.3.0.Final")
 
