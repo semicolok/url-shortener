@@ -1,12 +1,12 @@
 package com.jake.url.shortener.exception;
 
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
@@ -20,7 +20,7 @@ public class UrlShortenerHandler {
 
         log.error("UrlShortenerException. httpStatus: {}, message: {}", httpStatus, message, e);
 
-        final Map<String, String> responseBody = new HashMap<>();
+        final Map<String, String> responseBody = Maps.newHashMap();
         responseBody.put("errorMessage", message);
 
         return new ResponseEntity<>(responseBody, httpStatus);

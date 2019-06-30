@@ -30,9 +30,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     compile("org.apache.commons:commons-lang3")
-
+    compile("com.google.guava:guava:28.0-jre")
     compile("org.mapstruct:mapstruct:1.3.0.Final")
-
     compile("org.projectlombok:lombok")
 
     runtime("com.h2database:h2")

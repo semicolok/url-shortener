@@ -1,12 +1,12 @@
 package com.jake.url.shortener.repository.url;
 
+import com.google.common.collect.Lists;
 import com.jake.url.shortener.controller.dto.GenerateShortUrlResponseDto;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mapstruct.factory.Mappers;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,7 +18,7 @@ class ShortUrlMapperTest {
     ShortUrlMapper shortUrlMapper = Mappers.getMapper(ShortUrlMapper.class);
 
     Collection<ShortUrl> shortUrlProvider() {
-        List<ShortUrl> shortUrls = new ArrayList<>();
+        List<ShortUrl> shortUrls = Lists.newArrayList();
         shortUrls.add(ShortUrl.of("http://localhost:8080", "http://longurl.com/loooong"));
         shortUrls.add(ShortUrl.of("http://localhost:8080/1", "http://longurl.com/looooooooong"));
         shortUrls.add(ShortUrl.of("http://localhost:8080/a", "http://longurl.com/l000000oooong"));
