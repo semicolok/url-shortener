@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,6 +18,9 @@ import java.time.LocalDateTime;
 public class ShortUrl {
 
     public static ShortUrl of(String generatedUrl, String originalUrl) {
+        Assert.hasText(generatedUrl, "Can not create with empty shortUrl.");
+        Assert.hasText(originalUrl, "Can not create with empty originalUrl.");
+
         final ShortUrl shortUrl = new ShortUrl();
         shortUrl.shortUrl = generatedUrl;
         shortUrl.originalUrl = originalUrl;

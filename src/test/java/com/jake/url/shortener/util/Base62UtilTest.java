@@ -1,4 +1,4 @@
-package com.jake.url.shortener.service;
+package com.jake.url.shortener.util;
 
 import org.junit.jupiter.api.Test;
 

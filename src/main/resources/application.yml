@@ -4,7 +4,3 @@ spring:
   groovy:
     template:
       check-template-location: false
-
-url:
-  short:
-    root: ${SHORT_ROOT_URL}

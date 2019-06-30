@@ -2,6 +2,7 @@ package com.jake.url.shortener.service;
 
 import com.jake.url.shortener.repository.key.ShortUrlKey;
 import com.jake.url.shortener.repository.key.ShortUrlKeyRepository;
+import com.jake.url.shortener.util.Base62Util;
 import org.springframework.stereotype.Service;
 
 @Service

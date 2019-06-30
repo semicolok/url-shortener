@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ShortUrlRepositoryIntegrationTest {
 
-    private static final String ANY_SHORT_URL = "https://anyshorturl/DLSE12A82LE";
+    private static final String ANY_SHORT_URL = "http://localhost:8080/b";
     private static final int ANY_LONG_URL_LENGTH = 2629;
 
     @Autowired

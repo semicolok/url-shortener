@@ -14,5 +14,8 @@ spring:
       ddl-auto: none
   h2:
     console:
-      enabled: true
-      path: /h2-console
+      enabled: false
+
+url:
+  short:
+    root: http://localhost:8080

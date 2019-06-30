@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: ${DATABASE_URL}
     driverClassName: org.h2.Driver
-    username: sa
-    password:
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: false
@@ -14,5 +14,8 @@ spring:
       ddl-auto: none
   h2:
     console:
-      enabled: true
-      path: /h2-console
+      enabled: false
+
+url:
+  short:
+    root: ${SHORT_ROOT_URL}
