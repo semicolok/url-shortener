@@ -11,8 +11,10 @@ Junit jupiter: 5.3.2
 ## Setup  
 * To run this project, you need Java SDK(JDK) 1.8.    
 #### Set environment variables(Required)
-Environment variables are used in the project. You can not skip this step.
+Environment variables are used in the project (application-{profile}.yml). You can not skip this step.
 You can modify them, if you need.  
+The project has 3 types of profiles. (dev, stag, prod)  
+Use "dev" profile for testing.  
 ```  
 $ export SPRING_PROFILES_ACTIVE=dev
 $ export SHORT_ROOT_URL=http://localhost:8080
@@ -26,12 +28,12 @@ This project has gradle wrapper. You can build it without installing gradle.
 $ ./gradlew clean build
 ```  
 #### Run  
-There is 2 ways you can run this project with. Run JAR file and Use gradle "bootRun" task.  
+There is 2 ways you can run this project with. Run JAR file and use gradle "bootRun" task.  
 ##### jar run  
 ```  
 $ java -jar ./build/libs/url-shortener-0.0.1-SNAPSHOT.jar
 ```  
-##### gradle run  
+##### gradle bootRun  
 ```  
 $ ./gradlew clean bootRun
 ```  

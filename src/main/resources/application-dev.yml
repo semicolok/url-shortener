@@ -20,7 +20,7 @@ spring:
 logging:
   level:
     org:
-      springframework: DEBUG
+      springframework: INFO
 
 url:
   short:
