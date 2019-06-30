@@ -16,6 +16,7 @@ You can modify them, if you need.
 The project has 3 types of profiles. (dev, stag, prod)  
 Use "dev" profile for testing.  
 ```  
+$ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 $ export SPRING_PROFILES_ACTIVE=dev
 $ export SHORT_ROOT_URL=http://localhost:8080
 $ export DATABASE_URL=jdbc:h2:~/test.h2;FILE_LOCK=SOCKET
