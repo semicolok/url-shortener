@@ -9,9 +9,9 @@ HikariCP: 3.2.0
 Embed Tomcat: 9.0.21  
 Junit jupiter: 5.3.2  
 ## Setup  
-* To run this project, you need the Java SDK(JDK).    
+* To run this project, you need Java SDK(JDK) 1.8.    
 #### Set environment variables(Required)
-Environment variables are used in the project.
+Environment variables are used in the project. You can not skip this step.
 You can modify them, if you need.  
 ```  
 $ export SPRING_PROFILES_ACTIVE=dev
@@ -26,15 +26,16 @@ This project has gradle wrapper. You can build it without installing gradle.
 $ ./gradlew clean build
 ```  
 #### Run  
-jar run  
+There is 2 ways you can run this project with. Run JAR file and Use gradle "bootRun" task.  
+##### jar run  
 ```  
 $ java -jar ./build/libs/url-shortener-0.0.1-SNAPSHOT.jar
 ```  
-gradle run  
+##### gradle run  
 ```  
-$ ./gradlew clean bootrun
+$ ./gradlew clean bootRun
 ```  
-#### Test  
+#### Usage  
 Generate short url.
 ```  
 curl -X POST \
@@ -50,7 +51,7 @@ curl -X POST \
 Response
 {"shortUrl":"http://localhost:8080/b","originalUrl":"https://www.google.com/search?q=teseturllal&oq=teseturllal&aqs=chrome..69i57j0l5.2753j0j7&sourceid=chrome&ie=UTF-8"}
 ```  
-Access short url
+Access generated short url.
 ```  
 $ open http://localhost:8080/b
 ```  
