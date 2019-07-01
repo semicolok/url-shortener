@@ -51,14 +51,14 @@ $ curl -X POST \
   http://localhost:8080/url-shorteners \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
-  -H 'content-length: 129' \
+  -H 'content-length: 211' \
   -d '{
-	"url" : "https://www.google.com/search?q=teseturllal&oq=teseturllal&aqs=chrome..69i57j0l5.2753j0j7&sourceid=chrome&ie=UTF-8"
+	"url" : "https://www.google.com/search?source=hp&ei=0mgSXIPvE4iVkwX3263oCQ&q=kotlin&btnK=Google+Search&oq=kotlin&gs_l=psy-ab.3..0l10.1355.2447..2835...0.0..0.76.480.7......0....1..gws-wiz.....0.h8HxJVy-QF0"
 }'
 
 
 # Response
-{"shortUrl":"http://localhost:8080/b","originalUrl":"https://www.google.com/search?q=teseturllal&oq=teseturllal&aqs=chrome..69i57j0l5.2753j0j7&sourceid=chrome&ie=UTF-8"}
+{"shortUrl":"http://localhost:8080/b","originalUrl":"https://www.google.com/search?source=hp&ei=0mgSXIPvE4iVkwX3263oCQ&q=kotlin&btnK=Google+Search&oq=kotlin&gs_l=psy-ab.3..0l10.1355.2447..2835...0.0..0.76.480.7......0....1..gws-wiz.....0.h8HxJVy-QF0"}
 ```  
 Access generated short url.  
 ```  
