@@ -3,7 +3,7 @@ package com.jake.url.shortener.controller;
 import com.jake.url.shortener.component.UrlShortener;
 import com.jake.url.shortener.controller.dto.GenerateShortUrlRequestDto;
 import com.jake.url.shortener.controller.dto.GenerateShortUrlResponseDto;
-import com.jake.url.shortener.exception.UrlShortenerException;
+import com.jake.url.shortener.exception.UrlNotFoundException;
 import com.jake.url.shortener.service.ShortUrlKeyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +32,7 @@ public class UrlShortenerController {
         try {
             final String originalUrl = urlShortener.getOriginalUrlByShortUrlKey(shortUrlKey);
             return "redirect:" + originalUrl;
-        } catch (UrlShortenerException e) {
+        } catch (UrlNotFoundException e) {
             modelMap.put("errorMessage", e.getMessage());
             return "error/404";
         }

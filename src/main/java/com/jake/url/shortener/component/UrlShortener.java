@@ -1,12 +1,11 @@
 package com.jake.url.shortener.component;
 
 import com.jake.url.shortener.controller.dto.GenerateShortUrlResponseDto;
-import com.jake.url.shortener.exception.UrlShortenerException;
+import com.jake.url.shortener.exception.UrlNotFoundException;
 import com.jake.url.shortener.repository.url.ShortUrl;
 import com.jake.url.shortener.repository.url.ShortUrlMapper;
 import com.jake.url.shortener.repository.url.ShortUrlRepository;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
@@ -37,8 +36,9 @@ public class UrlShortener {
     public String getOriginalUrlByShortUrlKey(final String shortUrlKey) {
         Assert.hasText(shortUrlKey, "'shortUrlKey' must not be empty.");
 
-        final ShortUrl shortUrl = shortUrlRepository.findById(buildShortUrlWithKey(shortUrlKey))
-                .orElseThrow(() -> new UrlShortenerException("Not found URL with " + shortUrlKey, HttpStatus.NOT_FOUND));
+        final String fullShortUrl = buildShortUrlWithKey(shortUrlKey);
+        final ShortUrl shortUrl = shortUrlRepository.findById(fullShortUrl)
+                .orElseThrow(() -> new UrlNotFoundException("Not found URL with " + fullShortUrl));
 
         return shortUrl.getOriginalUrl();
     }
