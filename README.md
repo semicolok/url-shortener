@@ -1,10 +1,10 @@
 # url-shortener  
 This project provides "URL shortener" service.  
-It uses Base62 encoding to generate short url with "long value".  
+It uses Base62 encoding to generate short URL with "long value".  
 The "long value" means Java Long type. It is managed by Database (SHORT_URL_KEY table).  
 Except negative value, it covers 1 ~ 9,223,372,036,854,775,807.  
-Base62 encoder generate value with those long values.  
-Results of generated base62 value covers "b" ~ "k9viXaIfiWh".  
+Base62 encoder generates base62 value with those long values.  
+Results of generated base62 value cover "b" ~ "k9viXaIfiWh".  
 ## Technologies    
 Java version: 1.8  
 Gradle: 5.4.1  
@@ -17,7 +17,7 @@ Junit jupiter: 5.3.2
 * To run this project, you need Java SDK(JDK) 1.8.  
 #### Set environment variables(Required)  
 Environment variables are used in the project (application-{profile}.yml).  
-You can not skip this step.  
+You cannot skip this step.  
 You can modify them, if you need.  
 The project has 3 types of profiles. (dev, stag, prod)  
 Use "dev" profile for testing.  

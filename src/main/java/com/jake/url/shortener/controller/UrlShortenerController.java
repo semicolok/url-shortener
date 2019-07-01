@@ -3,10 +3,12 @@ package com.jake.url.shortener.controller;
 import com.jake.url.shortener.component.UrlShortener;
 import com.jake.url.shortener.controller.dto.GenerateShortUrlRequestDto;
 import com.jake.url.shortener.controller.dto.GenerateShortUrlResponseDto;
+import com.jake.url.shortener.exception.UrlShortenerException;
 import com.jake.url.shortener.service.ShortUrlKeyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,10 +28,14 @@ public class UrlShortenerController {
     }
 
     @GetMapping("/{shortUrlKey}")
-    public String redirectToOriginalUrl(@PathVariable String shortUrlKey) {
-        final String originalUrl = urlShortener.getOriginalUrlByShortUrlKey(shortUrlKey);
-
-        return "redirect:" + originalUrl;
+    public String redirectToOriginalUrl(@PathVariable String shortUrlKey, ModelMap modelMap) {
+        try {
+            final String originalUrl = urlShortener.getOriginalUrlByShortUrlKey(shortUrlKey);
+            return "redirect:" + originalUrl;
+        } catch (UrlShortenerException e) {
+            modelMap.put("errorMessage", e.getMessage());
+            return "error/404";
+        }
     }
 
     @PostMapping("/url-shorteners")

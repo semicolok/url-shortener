@@ -26,6 +26,7 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:1.3.0.Final")
 
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 

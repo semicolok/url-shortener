@@ -14,7 +14,7 @@ public class Base62Util {
     private static final int ZERO = 0;
 
     public static String encode(final long decimal) {
-        Assert.isTrue(decimal >= 0, "'decimal' must be 'positive numbers'.");
+        Assert.isTrue(decimal >= ZERO, "'decimal' must be 'positive numbers'.");
 
         final String decimalStr = Long.toString(decimal);
         final int decimalStrLength = decimalStr.length();
