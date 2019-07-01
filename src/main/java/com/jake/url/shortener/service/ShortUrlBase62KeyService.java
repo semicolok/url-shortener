@@ -18,6 +18,6 @@ public class ShortUrlBase62KeyService implements ShortUrlKeyService {
     public String generateKey() {
         final ShortUrlKey shortUrlKey = shortUrlKeyRepository.save(new ShortUrlKey());
 
-        return Base62Util.getBase62From10(shortUrlKey.getUrlKey());
+        return Base62Util.encode(shortUrlKey.getUrlKey());
     }
 }

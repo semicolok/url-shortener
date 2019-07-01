@@ -35,6 +35,8 @@ public class UrlShortener {
     }
 
     public String getOriginalUrlByShortUrlKey(final String shortUrlKey) {
+        Assert.hasText(shortUrlKey, "'shortUrlKey' must not be empty.");
+
         final ShortUrl shortUrl = shortUrlRepository.findById(buildShortUrlWithKey(shortUrlKey))
                 .orElseThrow(() -> new UrlShortenerException("Not found URL with shortUrlKey: " + shortUrlKey, HttpStatus.NOT_FOUND));
 

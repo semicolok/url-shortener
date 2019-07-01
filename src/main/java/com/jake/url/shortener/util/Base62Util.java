@@ -1,5 +1,7 @@
 package com.jake.url.shortener.util;
 
+import org.springframework.util.Assert;
+
 import java.math.BigInteger;
 
 public class Base62Util {
@@ -9,23 +11,30 @@ public class Base62Util {
 
     private static final char[] BASE62 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     private static final BigInteger RADIX = BigInteger.valueOf(62);
+    private static final int ZERO = 0;
 
-    public static String getBase62From10(final long seed) {
-        final String number = Long.toString(seed);
-        final int numberLength = number.length();
-        final char[] buf = new char[numberLength];
+    public static String encode(final long decimal) {
+        Assert.isTrue(decimal >= 0, "'decimal' must be 'positive numbers'.");
 
-        int charPos = numberLength - 1;
+        final String decimalStr = Long.toString(decimal);
+        final int decimalStrLength = decimalStr.length();
+        final char[] buf = new char[decimalStrLength];
 
-        BigInteger bigIntegerNumber = new BigInteger(number);
+        int charPos = decimalStrLength - 1;
 
-        while (bigIntegerNumber.compareTo(RADIX) >= 0) {
+        BigInteger bigIntegerNumber = new BigInteger(decimalStr);
+
+        while (isNotLessThanRadix(bigIntegerNumber)) {
             buf[charPos--] = BASE62[bigIntegerNumber.mod(RADIX).intValue()];
             bigIntegerNumber = bigIntegerNumber.divide(RADIX);
         }
 
         buf[charPos] = BASE62[bigIntegerNumber.intValue()];
 
-        return new String(buf, charPos, (numberLength - charPos));
+        return new String(buf, charPos, (decimalStrLength - charPos));
+    }
+
+    private static boolean isNotLessThanRadix(BigInteger bigIntegerNumber) {
+        return bigIntegerNumber.compareTo(RADIX) >= ZERO;
     }
 }
