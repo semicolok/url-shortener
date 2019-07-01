@@ -50,8 +50,6 @@ Generate short url.
 $ curl -X POST \
   http://localhost:8080/url-shorteners \
   -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -H 'content-length: 211' \
   -d '{
 	"url" : "https://www.google.com/search?source=hp&ei=0mgSXIPvE4iVkwX3263oCQ&q=kotlin&btnK=Google+Search&oq=kotlin&gs_l=psy-ab.3..0l10.1355.2447..2835...0.0..0.76.480.7......0....1..gws-wiz.....0.h8HxJVy-QF0"
 }'
